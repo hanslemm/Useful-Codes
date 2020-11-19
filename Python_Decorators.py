@@ -1,10 +1,14 @@
-from flask import Flask, request, abort
-import functools
-app = Flask(__name__)
 """
+JSON Expected Arguments Checker
+
 This decorator validates JSON according to the
 arguments you pass into it
 """
+
+from flask import Flask, request, abort
+import functools
+app = Flask(__name__)
+
 def validate_json(*expected_args):                  # 1
     def decorator_validate_json(func):
         @functools.wraps(func)
